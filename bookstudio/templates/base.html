@@ -1,4 +1,11 @@
-{% load staticfiles i18n %}<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Book studio</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+{% load staticfiles i18n %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -20,38 +27,43 @@
     <!-- Your stuff: Third-party CSS libraries go here -->
     
     <!-- This file stores project-specific CSS -->
-    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    <link href="{% static 'css/templatemo_style.css' %}" rel="stylesheet">
     
     {% endblock %}
 
   </head>
+<body bg-color="black">
+<div id="templatemo_container">
+    <div id="templatemo_menu">
+        <ul>
+         <li><a class="current" href="{% url 'home' %}">bookstudio</a></li>
+         <a class="current" href="{% url 'about' %}">About</a>
 
-  <body>
+            <li><a href="index.html" class="current">Home</a></li>
+            <li><a href="subpage.html">Search</a></li>
+            <li><a href="subpage.html">New releases</a></li>            
+            <li><a href="subpage.html">Login</a></li>  
+            <li><a href="#">About us</a></li> 
+            <li><a href="basic.html">contact</a></li>
+        </ul>
+    </div> <!-- end of menu -->
+    
+    <div id="templatemo_header">
+    <img src="{% static 'images/templatemo_header_bg.jpg' %}" alt="image" />
+        
 
-    <div class="m-b-1">
-      <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="{% url 'home' %}">bookstudio</a>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
-            </li>
+        <div id="templatemo_new_books">
+           
+            
+        </div>
+    </div>
             {% if request.user.is_authenticated %}
-              <li class="nav-item">
-                {# URL provided by django-allauth/account/urls.py #}
                 <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
-              </li>
-              <li class="nav-item">
+              
+              
                 {# URL provided by django-allauth/account/urls.py #}
                 <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
-              </li>
+              
             {% else %}
               <li class="nav-item">
                 {# URL provided by django-allauth/account/urls.py #}
@@ -62,11 +74,9 @@
                 <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
               </li>
             {% endif %}
-          </ul>
-        </div>
-      </nav>
-
-    </div>
+          
+        
+      
 
     <div class="container">
 
@@ -77,7 +87,9 @@
       {% endif %}
 
       {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
+        
+
+
       {% endblock content %}
 
     </div> <!-- /container -->
@@ -101,6 +113,22 @@
       
 
     {% endblock javascript %}
-  </body>
+
+     <footer>
+        <div id="templatemo_footer">
+    
+              <a class="current" href="{% url 'home' %}">bookstudio</a>| <a class="current" href="{% url 'about' %}">About</a>| <a href="#">FAQs</a> | <a href="#">Contact Us</a><br />
+              Copyright © 2017 <a href="#"><strong>Book studio</strong></a> 
+             <a class="current" href="{% url 'home' %}">bookstudio</a>
+           <a class="current" href="{% url 'about' %}">About</a>
+        <!-- Credit: www.templatemo.com --> </div> 
+     </footer><!-- end of footer -->
+<!--  Free CSS Template www.templatemo.com -->
+</div> <!-- end of container -->
+<!-- templatemo 086 book store -->
+<!-- 
+Book Store Template 
+http://www.templatemo.com/preview/templatemo_086_book_store 
+-->
 </html>
  
