@@ -55,6 +55,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     # custom users app
     'bookstudio.users.apps.UsersConfig',
+    'bookstudio.books.apps.BooksConfig',
     # Your stuff: custom apps go here
 ]
 

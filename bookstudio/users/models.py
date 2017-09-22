@@ -17,7 +17,7 @@ class User(AbstractUser):
     address = models.TextField(null=True, blank=True)
     city = models.CharField(max_length=30, null=True, blank=True)
     landmark = models.CharField(max_length=50, null=True, blank=True)
-    pincode = models.CharField(max_length=5, null=True, blank=True)
+    pincode = models.CharField(max_length=8, null=True, blank=True)
     gender = models.CharField(max_length=8, null=True, blank=True, choices=GENDER_CHOICES)
     country = CountryField(blank_label='(select country)', null=True, blank=True)
 
