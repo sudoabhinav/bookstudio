@@ -1,19 +1,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html style="background-color:#1c1c1b;">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Book studio</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 {% load staticfiles i18n %}
-<html lang="en">
-  <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %}bookstudio{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -22,7 +23,9 @@
 
     {% block css %}
     <!-- Latest compiled and minified Bootstrap 4 Alpha 4 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Your stuff: Third-party CSS libraries go here -->
     
@@ -32,24 +35,38 @@
     {% endblock %}
 
   </head>
-<body bg-color="black">
-<div id="templatemo_container">
-    <div id="templatemo_menu">
-        <ul>
-         <li><a class="current" href="{% url 'home' %}">bookstudio</a></li>
-         <a class="current" href="{% url 'about' %}">About</a>
+<body bg-color="black" style="height:800px; width:1460px;">
+<div id="templatemo_container" style="height:100%; width:100%;">
+  <nav class="navbar navbar-default" style="background-color:black;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Bookstudio</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a class="current" href="{% url 'home' %}">bookstudio</a></li>
+      <li>   <a class="current" href="{% url 'about' %}">About</a></li>
 
             <li><a href="index.html" class="current">Home</a></li>
-            <li><a href="subpage.html">Search</a></li>
             <li><a href="subpage.html">New releases</a></li>            
             <li><a href="subpage.html">Login</a></li>  
             <li><a href="#">About us</a></li> 
             <li><a href="basic.html">contact</a></li>
-        </ul>
-    </div> <!-- end of menu -->
+    </ul>
+    <div class="col-sm-3 col-md-3">
+        <form class="navbar-form" role="search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+        </form>
+    </div>
+  </div>
+</nav> <!-- end of menu -->
     
-    <div id="templatemo_header">
-    <img src="{% static 'images/templatemo_header_bg.jpg' %}" alt="image" />
+    <div class="col-sm-12" id="templatemo_header" style="width:1460px; height:430px;">
+    <img src="{% static 'images/templatemo_header_bg11.jpg' %}" style="margin:-10px;" alt="image" />
         
 
         <div id="templatemo_new_books">
@@ -57,28 +74,37 @@
             
         </div>
     </div>
+    <div class="container col-sm-12">
             {% if request.user.is_authenticated %}
-                <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
+               <li> <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li>
               
               
                 {# URL provided by django-allauth/account/urls.py #}
-                <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
+                <li><a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a></li>
               
             {% else %}
-              <li class="nav-item">
+            <div class="row">
+              <div class="col-sm-2">
+              <li style="font-size:20px;">
                 {# URL provided by django-allauth/account/urls.py #}
                 <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
-              </li>
-              <li class="nav-item">
+              </li></div>
+              <div class="col-sm-2">
+              <li style="font-size:20px;">
                 {# URL provided by django-allauth/account/urls.py #}
                 <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
               </li>
+            </div>
+            <div class="col-sm-8"></div>
+            </div>
             {% endif %}
+
+      </div>
           
         
       
 
-    <div class="container">
+    <div class="container col-sm-12">
 
       {% if messages %}
           {% for message in messages %}
@@ -93,6 +119,10 @@
       {% endblock content %}
 
     </div> <!-- /container -->
+    <div class="container col-sm-12">
+      <h3>some data</h3>
+      <p>about the data</p>
+    </div>
 
     {% block modal %}{% endblock modal %}
 
@@ -114,17 +144,16 @@
 
     {% endblock javascript %}
 
-     <footer>
-        <div id="templatemo_footer">
-    
-              <a class="current" href="{% url 'home' %}">bookstudio</a>| <a class="current" href="{% url 'about' %}">About</a>| <a href="#">FAQs</a> | <a href="#">Contact Us</a><br />
-              Copyright © 2017 <a href="#"><strong>Book studio</strong></a> 
-             <a class="current" href="{% url 'home' %}">bookstudio</a>
-           <a class="current" href="{% url 'about' %}">About</a>
-        <!-- Credit: www.templatemo.com --> </div> 
-     </footer><!-- end of footer -->
+     
 <!--  Free CSS Template www.templatemo.com -->
-</div> <!-- end of container -->
+</div>
+<footer class="container-fluid bg-4 text-center col-sm-12" style="background-color:black;">
+      <a class="current" href="{% url 'home' %}">bookstudio</a>| <a class="current" href="{% url 'about' %}">About</a>| <a href="#">FAQs</a> | <a href="#">Contact Us</a><br />
+              Copyright © 2017 <a href="#"><strong>Book studio</strong></a> 
+           <a class="current" href="{% url 'about' %}">About</a>
+</footer> <!-- end of container -->
+</body>
+
 <!-- templatemo 086 book store -->
 <!-- 
 Book Store Template 
