@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+    {% for book in books %}
+        <b><em>For image</em></b>
+        <p>{{ book.name }}</p>
+        <p>Edit</p>
+        <a class="anc_text" href="{% url 'books:book_edit' book.id %}">Edit book info</a>
+        <p>Remove</p>    
+    {% endfor %}
+
+</body>
+</html>

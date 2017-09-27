@@ -15,6 +15,7 @@ urlpatterns = [
     # User management
     url(r'^users/', include('bookstudio.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^books/', include('bookstudio.books.urls', namespace='books')),
 
     # Your stuff: custom urls includes go here
 
