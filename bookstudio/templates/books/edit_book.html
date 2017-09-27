@@ -1,43 +1,45 @@
+<div class="row">
 {% extends "base.html" %}
 
 {% block content %}
+<div class="col-sm-6">
 <form class='form-horizontal' data-toggle="validator" method="post" role="form" style="margin-top: 20px;">
     {% csrf_token %}
         <div class="row">
-            <div>
-                <p><b>Name: </b>&nbsp;{{ book_form.name }}</p>
+            <div style="font-size:20px;margin:10px;">
+                <p><b>Name: </b><br>&nbsp;{{ book_form.name }}</p>
+            </div>
+        </div>
+            <div class="row">
+            <div style="font-size:20px;margin:10px;">
+        
+                <p><b>Author: </b><br>&nbsp;{{ book_form.author }}</p>
             </div>
         </div>
 
         <div class="row">
-            <div>
-                <p><b>Author: </b>&nbsp;{{ book_form.author }}</p>
+            <div style="font-size:20px;margin:10px;">
+            
+                <p><b>Publisher: </b><br>&nbsp;{{ book_form.publisher }}</p>
             </div>
         </div>
 
         <div class="row">
-            <div>
-                <p><b>Publisher: </b>&nbsp;{{ book_form.publisher }}</p>
+            <div style="font-size:20px;margin:10px;">
+                <p><b>Pages: </b><br>&nbsp;{{ book_form.pages }}</p>
+            </div>
+        </div>
+            <div class="row">
+            <div style="font-size:20px;margin:10px;">
+                <p><b>Price: </b><br>&nbsp;{{ book_form.price }}</p>
             </div>
         </div>
 
         <div class="row">
-            <div>
-                <p><b>Pages: </b>&nbsp;{{ book_form.pages }}</p>
+            <div style="font-size:20px;margin:10px;">
+                <p><b>Description: </b><br>&nbsp;{{ book_form.description }}</p>
             </div>
-        </div>
-
-        <div class="row">
-            <div>
-                <p><b>Price: </b>&nbsp;{{ book_form.price }}</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div>
-                <p><b>Description: </b>&nbsp;{{ book_form.description }}</p>
-            </div>
-        </div>
+        </div>s
         <div class='row'>
             <div class="input-group">
                 <input class="btn btn-primary btn-block" style="background-color: #09707c" type='submit' value='Save'>
@@ -45,3 +47,5 @@
         </div>
 </form>
 {% endblock %}
+</div>
+</div>
