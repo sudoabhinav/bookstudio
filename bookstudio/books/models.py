@@ -9,3 +9,5 @@ class Book(models.Model):
     pages = models.CharField(max_length=5)
     price = models.CharField(max_length=6)
     description = models.TextField(null=True, blank=True)
+
+    

@@ -2,15 +2,16 @@
 
 {% extends "base.html" %}
 
+
 {% block content %}
 <div class="col-sm-6">
 {% for book in books %}
         <b><em>For image</em></b>
         <p style="font-size:20px;margin:8px;">{{ book.name }}</p>
-        <p style="font-size:20px;margin:8px;">Edit</p>
         <a style="font-size:20px;margin:8px;" class="anc_text" href="{% url 'books:book_edit' book.id %}">Edit book info</a>
-        <p style="font-size:20px;margin:8px;">Remove</p>    
+        <a style="font-size:20px;margin:8px;" class="anc_text" href="{% url 'books:book_remove' book.id %}">Remove book</a>
+    	<br>
     {% endfor %}
+ </div>
+
 {% endblock %}
-</div>
-</div>

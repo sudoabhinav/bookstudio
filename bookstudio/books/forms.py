@@ -1,5 +1,6 @@
 from django import forms
 from django.forms import ModelForm
+from django.core.exceptions import ValidationError
 from . models import Book 
 
 
@@ -20,4 +21,14 @@ class BookForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super(BookForm, self).clean()
-        return cleaned_data
+        name = cleaned_data.get("name","")
+        author = cleaned_data.get("author","")
+        price = cleaned_data.get("price","")
+        if not name:
+            raise forms.ValidationError("name is required")
+        elif not author:
+            raise forms.ValidationError("author name is required")
+        elif not price:
+            raise forms.ValidationError("price is required")
+        else:
+            return cleaned_data

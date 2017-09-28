@@ -19,6 +19,17 @@ def add_book(request):
     return render(request, 'books/add_book.html', {'book_form': book_form})
 
 
+def book_remove(request, book_id):
+    try:
+        book = Book.objects.get(id=book_id)
+    except:
+        raise Http404
+    book.delete()
+    all_books = Book.objects.all()
+    books = all_books.filter(user_name=request.user.id)
+    return render(request, 'books/book_list.html', {'books': books})
+
+
 def books_list(request):
     all_books = Book.objects.all()
     books = all_books.filter(user_name=request.user.id)

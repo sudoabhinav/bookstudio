@@ -10,12 +10,26 @@
             <div style="font-size:20px;margin:10px;">
                 <p><b>Name: </b><br>&nbsp;{{ book_form.name }}</p>
             </div>
+            <div class="help-block with-errors"></div>
+            {% if book_form.name.errors %}
+                <div class="alert alert-danger server_errors" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    {{book_form.name.errors.as_text}}
+                </div>
+            {% endif %}
         </div>
 
         <div class="row">
             <div style="font-size:20px;margin:10px;">
                 <p><b>Author: </b><br>&nbsp;{{ book_form.author }}</p>
             </div>
+            <div class="help-block with-errors"></div>
+            {% if book_form.author.errors %}
+                <div class="alert alert-danger server_errors" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    {{book_form.author.errors.as_text}}
+                </div>
+            {% endif %}
         </div>
 
         <div class="row">
@@ -34,6 +48,13 @@
             <div style="font-size:20px;margin:10px;">
                 <p><b>Price: </b><br>&nbsp;{{ book_form.price }}</p>
             </div>
+            <div class="help-block with-errors"></div>
+            {% if book_form.price.errors %}
+                <div class="alert alert-danger server_errors" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    {{book_form.price.errors.as_text}}
+                </div>
+            {% endif %}
         </div>
 
         <div class="row">
