@@ -20,7 +20,7 @@ TEMPLATES[0]['OPTIONS']['debug'] = DEBUG
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Note: This key only used for development and testing.
-SECRET_KEY = env('DJANGO_SECRET_KEY', default='X;*U>:[}A?n~lQ{PLCFA[<^~(w?:/kyCr7gw24_^VMqO|%!u,%')
+SECRET_KEY = env('DJANGO_SECRET_KEY', default='abhinav')
 
 # Mail settings
 # ------------------------------------------------------------------------------
@@ -29,8 +29,8 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', default='X;*U>:[}A?n~lQ{PLCFA[<^~(w?:/kyCr
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD = '@minorproject#'
-EMAIL_HOST_USER = 'bookstudio6@gmail.com'
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 

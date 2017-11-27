@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from django.core.exceptions import ValidationError
-from . models import Book 
+from . models import Book
 
 
 class BookForm(forms.ModelForm):
@@ -21,9 +21,9 @@ class BookForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super(BookForm, self).clean()
-        name = cleaned_data.get("name","")
-        author = cleaned_data.get("author","")
-        price = cleaned_data.get("price","")
+        name = cleaned_data.get("name", "")
+        author = cleaned_data.get("author", "")
+        price = cleaned_data.get("price", "")
         if not name:
             raise forms.ValidationError("name is required")
         elif not author:
