@@ -25,7 +25,10 @@
         <p>Gender: {{ object.gender }}</p>
       {% endif %}
       {% if object.address%}
-        <p>Address: {{ object.address }}</p>
+        <p>Address: {{ object.address }}</p>  
+      {% endif %}
+      {% if object.phone_number%}
+        <p>Phone Number: {{ object.phone_number }}</p>
       {% endif %}
     </div>
   </div>

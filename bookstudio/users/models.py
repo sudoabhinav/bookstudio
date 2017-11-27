@@ -19,6 +19,7 @@ class User(AbstractUser):
     landmark = models.CharField(max_length=50, null=True, blank=True)
     pincode = models.CharField(max_length=8, null=True, blank=True)
     gender = models.CharField(max_length=8, null=True, blank=True, choices=GENDER_CHOICES)
+    phone_number = models.CharField(max_length=11, null=True, blank=True)
     country = CountryField(blank_label='(select country)', null=True, blank=True)
 
     def __str__(self):

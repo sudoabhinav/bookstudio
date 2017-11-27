@@ -1,11 +1,18 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import Http404
 
 from . forms import BookForm
 from .models import Book
 
 
 def book_home(request):
-    return render(request, 'books/basefile.html')
+    book = request.GET.get('q', '')
+    all_books = Book.objects.all()
+    if book:
+        all_books = all_books.filter(name__icontains=book)
+    else:
+        all_books = all_books.filter(user_name=request.user)
+    return render(request, 'books/basefile.html', {'all_books': all_books})
 
 
 def add_book(request):
@@ -34,6 +41,7 @@ def books_list(request):
     all_books = Book.objects.all()
     books = all_books.filter(user_name=request.user.id)
     return render(request, 'books/book_list.html', {'books': books})
+
 
 def book_edit(request, book_id):
     book = get_object_or_404(Book, id=book_id)

@@ -138,6 +138,8 @@ USE_L10N = True
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
 
+ACCOUNT_SIGNUP_FORM_CLASS = 'bookstudio.users.forms.SignupForm'
+
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#templates
@@ -266,15 +268,32 @@ LOGIN_URL = 'account_login'
 # SLUGLIFIER
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 
-########## CELERY
-INSTALLED_APPS += ['bookstudio.taskapp.celery.CeleryConfig']
+# CELERY
+INSTALLED_APPS += ['bookstudio.taskapp.celery.CeleryConfig', 'storages', ]
 CELERY_BROKER_URL = env('CELERY_BROKER_URL', default='django://')
 if CELERY_BROKER_URL == 'django://':
     CELERY_RESULT_BACKEND = 'redis://'
 else:
     CELERY_RESULT_BACKEND = CELERY_BROKER_URL
-########## END CELERY
+# END CELERY
 
+
+AWS_ACCESS_KEY_ID = 'AKIAI3Z25CYQX5J2AAJQ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'bookstudio-images'
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+# querystring auth is used to remove the signature from the url
+# if we want to use with the signature then kuch aur settings bhi karni padti hain..
+AWS_QUERYSTRING_AUTH = False
+AWS_LOCATION = 'static'
+
+STATIC_URL = 'https://%s/' % (AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+DEFAULT_FILE_STORAGE = 'bookstudio.custom_storages.MediaStorage'
 
 # Location of root django.contrib.admin URL, use {% url 'admin:index' %}
 ADMIN_URL = r'^admin/'

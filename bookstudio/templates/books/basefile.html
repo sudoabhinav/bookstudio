@@ -2,9 +2,13 @@
 
 {% extends "base.html" %}
 
+
 {% block content %}
 <div class="col-sm-6">
-        <p style="font-size:25px;"><b><i>Congratulations!!<br><br> Your book has been added</i></b></p>   
+{% for book in all_books %}
+        <p style="font-size:20px;margin:8px;">{{ book.name }}</p>
+        <br>
+    {% endfor %}
+ </div>
+
 {% endblock %}
-</div>
-</div>

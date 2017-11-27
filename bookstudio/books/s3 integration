@@ -1,0 +1,44 @@
+we need two libraries to be installed :-
+
+1. boto3 
+2. django-storages
+
+
+
+things to do:-
+    1. set up amazon s3 - done
+    2. make the book image feature working
+    3. mobile number feature when sign up - done
+    4. email feature - done
+    5. facebook, google direct sign up
+    6. searching through image
+
+-------------------------------------------------------------------------------------------------
+
+secret acces key - o5N0aCXnYtMaLC9PuTcfoLmR3kXo6aGOtaSSoYzu
+acces key - AKIAI3Z25CYQX5J2AAJQ
+user - s3-user
+-------------------------------------------------------------------------------------------------
+
+<form class="navbar-form" role="search" action="{% url 'books:book_imagehome' %}">
+        <div class="input-group">
+            <input type="text" class="form-control" name="q" id="id_book_search" placeholder="Image Search">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+        </form>
+
+
+def book_imagehome(request):
+    book = request.GET.get('q', '')
+    all_books = Book.objects.all()
+    if book:
+        all_books = all_books.filter(name__icontains=book)
+    else:
+        all_books = all_books.filter(user_name=request.user)
+    return render(request, 'books/basefile.html', {'all_books': all_books})
+
+
+
+url(r'search/^$', views.book_imagehome, name="book_imagehome"),

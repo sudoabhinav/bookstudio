@@ -1,6 +1,7 @@
 from django.db import models
 from bookstudio.users.models import User
 
+
 class Book(models.Model):
     name = models.CharField(max_length=40)
     user_name = models.ForeignKey(User, null=True, blank=True)
@@ -10,4 +11,5 @@ class Book(models.Model):
     price = models.CharField(max_length=6)
     description = models.TextField(null=True, blank=True)
 
-    
+    def __str__(self):
+        return self.user_name.username
