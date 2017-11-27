@@ -26,11 +26,15 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', default='X;*U>:[}A?n~lQ{PLCFA[<^~(w?:/kyCr
 # ------------------------------------------------------------------------------
 
 
-EMAIL_PORT = 1025
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_PASSWORD = '@minorproject#'
+EMAIL_HOST_USER = 'bookstudio6@gmail.com'
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-EMAIL_HOST = 'localhost'
-EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND',
-                    default='django.core.mail.backends.console.EmailBackend')
+
 
 # CACHING
 # ------------------------------------------------------------------------------
