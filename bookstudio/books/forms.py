@@ -8,7 +8,7 @@ class BookForm(forms.ModelForm):
 
     class Meta:
         model = Book
-        fields = ('name', 'author', 'publisher', 'pages', 'price', 'description')
+        fields = ('name', 'author', 'publisher', 'pages', 'price', 'description', 'file_name')
 
     def __init__(self, *args, **kwargs):
         super(BookForm, self).__init__(*args, **kwargs)
@@ -18,6 +18,7 @@ class BookForm(forms.ModelForm):
         self.fields['pages'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Pages'})
         self.fields['price'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Price'})
         self.fields['description'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Description'})
+        self.fields['file_name'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Book Image'})
 
     def clean(self):
         cleaned_data = super(BookForm, self).clean()

@@ -16,7 +16,7 @@ def book_home(request):
 
 
 def add_book(request):
-    book_form = BookForm(request.POST or None)
+    book_form = BookForm(request.POST or None, request.FILES or None)
     if request.method == 'POST':
         if book_form.is_valid():
             detail = book_form.save(commit=False)

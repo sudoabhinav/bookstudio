@@ -16,16 +16,11 @@ APPS_DIR = ROOT_DIR.path('bookstudio')
 env = environ.Env()
 
 # .env file, should load only in development environment
-READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=False)
+READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=True)
 
 if READ_DOT_ENV_FILE:
-    # Operating System Environment variables have precedence over variables defined in the .env file,
-    # that is to say variables from the .env files will only be used if not defined
-    # as environment variables.
     env_file = str(ROOT_DIR.path('.env'))
-    print('Loading : {}'.format(env_file))
     env.read_env(env_file)
-    print('The .env file has been loaded. See base.py for more information')
 
 # APP CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -281,9 +276,7 @@ else:
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
+
 # querystring auth is used to remove the signature from the url
 # if we want to use with the signature then kuch aur settings bhi karni padti hain..
 AWS_QUERYSTRING_AUTH = False
@@ -291,8 +284,6 @@ AWS_LOCATION = 'static'
 
 STATIC_URL = 'https://%s/' % (AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-
 DEFAULT_FILE_STORAGE = 'bookstudio.custom_storages.MediaStorage'
 
 # Location of root django.contrib.admin URL, use {% url 'admin:index' %}

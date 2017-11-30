@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="col-sm-6">
-<form class='form-horizontal' data-toggle="validator" method="post" role="form" style="margin-top: 20px;">
+<form class='form-horizontal' data-toggle="validator" method="post" role="form" style="margin-top: 20px;" enctype="multipart/form-data">
     {% csrf_token %}
         <div class="row">
             <div style="font-size:20px;margin:10px;">
@@ -56,6 +56,15 @@
                 </div>
             {% endif %}
         </div>
+        <div class="row">
+            <div class="col-md-offset-1 col-sm-9">
+                <div class="form-group">
+                    <label for="files">My Files:</label><br>
+                    <input type="file" name="file_name" id="file_name">
+                </div>
+            </div>
+        </div>
+
 
         <div class="row">
             <div style="font-size:20px;margin:10px;">
