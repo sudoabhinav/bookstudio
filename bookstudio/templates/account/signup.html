@@ -1,5 +1,6 @@
 {% extends "account/base.html" %}
 
+{% load socialaccount %}
 {% load i18n %}
 {% load crispy_forms_tags %}
 
@@ -18,6 +19,8 @@
   {% endif %}
   <button class="btn btn-primary" type="submit">{% trans "Sign Up" %} &raquo;</button>
 </form>
+
+<a href="{% provider_login_url 'facebook' method='oauth2' %}">Facebook OAuth2</a>
 
 {% endblock %}
 

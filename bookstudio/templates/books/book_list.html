@@ -6,7 +6,7 @@
 {% block content %}
 <div class="col-sm-6">
 {% for book in books %}
-        <b><em>For image</em></b>
+        <img height="50" width="50" alt="" src="{% if book.file_name %}{{ book.file_name.url }} {% endif %}">
         <p style="font-size:20px;margin:8px;">{{ book.name }}</p>
         <a style="font-size:20px;margin:8px;" class="anc_text" href="{% url 'books:book_edit' book.id %}">Edit book info</a>
         <a style="font-size:20px;margin:8px;" class="anc_text" href="{% url 'books:book_remove' book.id %}">Remove book</a>

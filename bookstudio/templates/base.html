@@ -83,11 +83,14 @@
                <a class="nav-link" href="{% url 'books:book_add' %}">{% trans "Add Book" %}</a></li></div>
               <div class="col-sm-3">
               <li style="font-size:20px;">
-              
-            {# URL provided by django-allauth/account/urls.py #}
-              <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}
-              </a>
-            </li>
+                <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}
+                </a>
+              </li>
+              <li style="font-size:20px;">
+                <a class="nav-link" href="{% url 'books:book_search' %}">{% trans "Image search" %}
+                </a>
+              </li>
+
               </div>
             </div>
             {% else %}

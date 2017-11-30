@@ -7,6 +7,7 @@
 <div class="col-sm-6">
 {% for book in all_books %}
         <p style="font-size:20px;margin:8px;">{{ book.name }}</p>
+        <a class="nav-link" href="{% url 'books:book_mail' book.id %}">Buy the book </a>
         <br>
     {% endfor %}
  </div>

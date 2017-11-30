@@ -33,3 +33,14 @@ class BookForm(forms.ModelForm):
             raise forms.ValidationError("price is required")
         else:
             return cleaned_data
+
+
+class ImageForm(forms.ModelForm):
+
+    class Meta:
+        model = Book
+        fields = ('file_name',)
+
+    def __init__(self, *args, **kwargs):
+        super(ImageForm, self).__init__(*args, **kwargs)
+        self.fields['file_name'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Book Image'})
