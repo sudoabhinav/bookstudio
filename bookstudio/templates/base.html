@@ -31,17 +31,17 @@
   </head>
 <body bg-color="red" style="height:800px; width:1460px;">
 <div id="templatemo_container" style="height:100%; width:100%;">
-  <nav class="navbar navbar-default" style="background-color:#432616;">
+  <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Bookstudio</a>
     </div>
     <ul class="nav navbar-nav">
-      <li>   <a class="current" href="#">About</a></li>
+      <li>   <a class="current" href="{% url 'about' %}">About</a></li>
 
-            <li><a href="#" class="current">Home</a></li>
+            <!-- <li><a href="#" class="current">Home</a></li>
             <li><a href="#">New releases</a></li>
-            <li><a href="#">About us</a></li> 
+            <li><a href="#">About us</a></li>  -->
             <li><a href="#">contact</a></li>
     </ul>
     <div class="col-sm-4 col-md-4">
@@ -70,28 +70,33 @@
     <div class="container col-sm-12">
       {% if request.user.is_authenticated %}
              <div class="row">
-              <div class="col-sm-3">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-2">
               <li style="font-size:20px;">
 
             
-               <a class="nav-link" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li></div> 
-               <div class="col-sm-3">
+               <a class="btn btn-info" style="color:black;" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a></li></div> 
+               <div class="col-sm-2">
                <li style="font-size:20px;">
-               <a class="nav-link" href="{% url 'books:books_list' %}">{% trans "Book's list" %}</a></li></div>
-               <div class="col-sm-3">
+               <a class="btn btn-info" style="color:black;" href="{% url 'books:books_list' %}">{% trans "Book's list" %}</a></li></div>
+               <div class="col-sm-2">
               <li style="font-size:20px;">
-               <a class="nav-link" href="{% url 'books:book_add' %}">{% trans "Add Book" %}</a></li></div>
-              <div class="col-sm-3">
+               <a class="btn btn-info" style="color:black;" href="{% url 'books:book_add' %}">{% trans "Add Book" %}</a></li></div>
+               <div class="col-sm-2">
               <li style="font-size:20px;">
-                <a class="nav-link" href="{% url 'account_logout' %}">{% trans "Sign Out" %}
+                <a class="btn btn-info" style="color:black;" href="{% url 'books:book_search' %}">{% trans "Image search" %}
                 </a>
               </li>
+            </div>
+              <div class="col-sm-2">
               <li style="font-size:20px;">
-                <a class="nav-link" href="{% url 'books:book_search' %}">{% trans "Image search" %}
+                <a class="btn btn-info" style="color:black;" href="{% url 'account_logout' %}">{% trans "Sign Out" %}
                 </a>
               </li>
-
               </div>
+              <div class="col-sm-1"></div>
+
+              
             </div>
             {% else %}
             <div class="row">
@@ -101,13 +106,13 @@
             
 
                 {# URL provided by django-allauth/account/urls.py #}
-              <a id="sign-up-link" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
+              <a id="sign-up-link" class="btn btn-info" style="color:black;" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
               </li>
             </div>
               <div class="col-sm-4">
               <li style="font-size:20px;">
                 {# URL provided by django-allauth/account/urls.py #}
-                <a id="log-in-link" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
+                <a id="log-in-link" class="btn btn-info" style="color:black;" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
               </li>
             </div>
             <div class="col-sm-4"></div>

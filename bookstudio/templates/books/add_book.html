@@ -7,7 +7,7 @@
 <form class='form-horizontal' data-toggle="validator" method="post" role="form" style="margin-top: 20px;" enctype="multipart/form-data">
     {% csrf_token %}
         <div class="row">
-            <div style="font-size:20px;margin:10px;">
+            <div style="font-size:20px;margin:10px;color:#5bc0de;">
                 <p><b>Name: </b><br>&nbsp;{{ book_form.name }}</p>
             </div>
             <div class="help-block with-errors"></div>
@@ -20,7 +20,7 @@
         </div>
 
         <div class="row">
-            <div style="font-size:20px;margin:10px;">
+            <div style="font-size:20px;margin:10px; color:#5bc0de;">
                 <p><b>Author: </b><br>&nbsp;{{ book_form.author }}</p>
             </div>
             <div class="help-block with-errors"></div>
@@ -33,19 +33,19 @@
         </div>
 
         <div class="row">
-            <div style="font-size:20px;margin:10px;">
+            <div style="font-size:20px;margin:10px;color:#5bc0de;">
                 <p><b>Publisher: </b><br>&nbsp;{{ book_form.publisher }}</p>
             </div>
         </div>
 
         <div class="row">
-            <div style="font-size:20px;margin:10px;">
+            <div style="font-size:20px;margin:10px;color:#5bc0de;">
                 <p><b>Pages: </b><br>&nbsp;{{ book_form.pages }}</p>
             </div>
         </div>
 
         <div class="row">
-            <div style="font-size:20px;margin:10px;">
+            <div style="font-size:20px;margin:10px;color:#5bc0de;">
                 <p><b>Price: </b><br>&nbsp;{{ book_form.price }}</p>
             </div>
             <div class="help-block with-errors"></div>
@@ -59,20 +59,20 @@
         <div class="row">
             <div class="col-md-offset-1 col-sm-9">
                 <div class="form-group">
-                    <label for="files">My Files:</label><br>
-                    <input type="file" name="file_name" id="file_name">
+                    <label for="files" style="font-size:20px;margin-left:-50px;color:#5bc0de;">My Files:</label><br><br>
+                    <input type="file" name="file_name" id="file_name" style=" color:#5bc0de;font-size:20px;margin-left:-50px;">
                 </div>
             </div>
         </div>
 
 
         <div class="row">
-            <div style="font-size:20px;margin:10px;">
+            <div style="font-size:20px;margin:10px;color:#5bc0de;">
                 <p><b>Description: </b><br>&nbsp;{{ book_form.description }}</p>
             </div>
         </div>
         <div class='row'>
-            <div class="input-group" style="font-size:20px;margin:10px;">
+            <div class="input-group" style="font-size:20px;margin:10px;color:#5bc0de;">
                 <input class="btn btn-primary btn-block" style="background-color: #09707c" type='submit' value='Save'>
             </div>
         </div>

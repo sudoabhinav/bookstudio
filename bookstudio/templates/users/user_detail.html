@@ -7,7 +7,7 @@
 
   <div class="row">
     <div class="col-sm-12">
-      <h2>Username: {{ object.username }}</h2>
+      <h2 style="color:#5bc0de;">Username: {{ object.username }}</h2>
       {% if object.name %}
         <p>Name: {{ object.name }}</p>
       {% endif %}
@@ -17,7 +17,7 @@
       {% if object.last_name%}
         <p>Last name: {{ object.last_name }}</p>
       {% endif %}
-        <p>Email: {{object.email}} </p>
+        <strong><p style="color:#5bc0de;font-size:20px;">Email: {{object.email}} </p></strong>
       {% if object.country%}
         <p>Country: {{ object.country }}</p>
       {% endif %}
@@ -35,6 +35,7 @@
 
 {% if object == request.user %}
 <!-- Action buttons -->
+<br>
 <div class="row">
 
   <div class="col-sm-12">
