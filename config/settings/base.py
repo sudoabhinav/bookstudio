@@ -293,8 +293,7 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'bookstudio.custom_storages.MediaStorage'
 
 
-SOCIAL_AUTH_FACEBOOK_KEY = '1850717684956514'
-SOCIAL_AUTH_FACEBOOK_SECRET = '5c5e22201bd3f1be6ee6d0e34be81ec3'
+
 # Location of root django.contrib.admin URL, use {% url 'admin:index' %}
 ADMIN_URL = r'^admin/'
 
